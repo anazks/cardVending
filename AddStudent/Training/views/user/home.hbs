@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home-Training</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .center,
+        .right,
+        .left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            gap: 5px;
+        }
+
+        .left span {
+            font-style: bold;
+            font-size: 17px;
+        }
+
+        .Resolve {
+            border: none;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: none;
+
+        }
+
+        #codes {
+            display: none;
+        }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+      
+
+        
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-250px * 9));
+            }
+        }
+
+        .slide {
+            height: 200px;
+            width: 250px;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            perspective: 100px;
+        }
+
+        img {
+            width: 100%;
+            transition: transform 0.5s;
+        }
+
+        img:hover {
+            transform: translateZ(20px);
+        }
+
+            .innerNav{
+                width: 100%;
+                height: 100%;
+                
+                background-color: rgb(208, 161, 98);
+               
+            }  
+            .innerNav span{
+                font-style: bold;
+            }   
+            span{
+               font-size: 16px;
+      color: #333
+            }
+    </style>
+</head>
+
+<body>
+    {{>usernav}}
+    <div class="mainBox">
+        <span id="Status"></span>
+        <div class="left" id="leftBox">
+            <b><i><span id="Error">Loading..</span></i></b> <br>
+            <input type="hidden" name="id" id="errorId"> <br>
+            <input type="hidden" name="trublecode" id="trublecode">
+            <input type="hidden" name="userId" id="userId" value="{{userId}}">
+            <input type="text" placeholder="Enter Code" name="code" id="codes">
+            <button class="Resolve" id="callResolveApi">Resolve</button>
+        </div>
+        <div class="center" style="background-image: url(https://res.cloudinary.com/practicaldev/image/fetch/s--wsZTx9T7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://res.cloudinary.com/practicaldev/image/fetch/s--JW699Bwz--/c_limit%252Cf_auto%252Cfl_progressive%252Cq_66%252Cw_880/https://gifimage.net/wp-content/uploads/2018/10/audio-spectrum-gif-5.gif);
+">
+            <div class="content">
+                <span id="processing" style="color: green;"> Prosessing..</span>
+            </div>
+        </div>
+        <div class="right" style="background-image: url(https://res.cloudinary.com/practicaldev/image/fetch/s--wsZTx9T7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://res.cloudinary.com/practicaldev/image/fetch/s--JW699Bwz--/c_limit%252Cf_auto%252Cfl_progressive%252Cq_66%252Cw_880/https://gifimage.net/wp-content/uploads/2018/10/audio-spectrum-gif-5.gif);
+">
+            <div class="content">
+              <span id="compleated" style="color: white;"></span>
+            </div>
+        </div>
+    </div>
+
+        <div class="Row" style="justify-content: space-between;">
+                <div class="error_Box" id="1">
+                    <div class="innerNav">
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+                        <span><b><i>product Id:99898D</i></b></span>
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                                 <span><b>Host Address:6D12.70:7</b></span>
+                          <span id="1">Processing...</span>
+                             <b><span id="32"></span></b>
+                            <b> <span id="33"></span></b>
+                           <b><span id="34" style="color: green;"></span></b>
+                           
+                    </div>      
+                </div> 
+                <div class="error_Box" id="1">
+                    <div class="innerNav">
+                     <span><b><i>product Id: 67e98Da</i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                                  <span><b>Host Address:9E12.70:7</b></span>
+                          <span id="1">Processing...</span>
+                             <b><span id="29"></span></b>
+                            <b> <span id="30"></span></b>
+                           <b><span id="31" style="color: green;"></span></b>
+                           
+                    </div>      
+                </div> 
+                <div class="error_Box" id="1">
+                    <div class="innerNav">
+                     <span><b><i>product Id:4r5r8Da </i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+                        
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                                 <span><b>Host Address:4H12.70:7</b></span>
+                          <span id="1">Processing...</span>
+                             <b><span id="35"></span></b>
+                            <b> <span id="36"></span></b>
+                           <b><span id="37" style="color: green;"></span></b>
+                           
+                    </div>      
+                </div> 
+                <div class="error_Box" id="2">
+                         <div class="innerNav">
+                          <span><b><i>product Id:0oo0898Da </i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                                  <span><b>Host Address:2D12.70:7</b></span>
+                             <span id="2">Processing...</span>
+                             <span id="24"></span>
+                             <span id="26"></span>
+                             <span id="27" style="color: green;"></span>
+                           
+                    </div> 
+                </div>
+                <div class="error_Box" id="3">
+                        <div class="innerNav">
+                          <span><b><i>product Id:08u898Da </i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                              <span><b>Host Address:6o12.70:7</b></span>
+                             
+                              <span id="2">Processing...</span>
+                             <span id="38"></span>
+                             <span id="39"></span>
+                             <span id="40" style="color: green;"></span>
+                           
+                    </div> 
+                </div>
+                <div class="error_Box" id="4">
+                    <div class="innerNav">
+                       <span><b><i>product Id:09pj898Da</i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                                <div class="contents">
+
+                                </div>
+                                <span><b>Host Address:9B12.70:7</b></span>
+                             <span id="4">Processing...</span>
+                             <span id="10"></span>
+                             <span id="11"></span>
+                             <span id="12" style="color: green;"></span>
+                           
+                    </div> 
+                </div>
+        </div>
+         <div class="Row">
+                <div class="error_Box" id="5">
+                        <div class="innerNav">
+                         <span><b><i>product Id:234e8Da</i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                                <span><b>Host Address:4A12.70:7</b></span>
+                             <span id="5">Processing...</span>
+                             <span id="13"></span>
+                             <span id="14"></span>
+                             <span id="15" style="color: green;"></span>
+                           
+                    </div> 
+                </div>
+                <div class="error_Box" id="6">
+                        <div class="innerNav">
+                 <span><b><i>product Id:12w898Da </i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                                 <span><b>Host Address:%P12.70:7</b></span>
+                                 
+                                 
+                             <span id="6">Processing...</span>
+                             <span id="16"></span>
+                             <span id="17"></span>
+                             <span id="18" style="color: green;"></span>
+                           
+                    </div> 
+                </div>
+                <div class="error_Box" id="7">
+                        <div class="innerNav">
+                       <span><b><i>product Id:34598Da</i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                            <span><b>Host Address:tD12.70:7</b></span>
+                             <span id="7">Processing...</span>
+                               
+                              <span id="21"></span>
+                             <span id="22"></span>
+                             <span id="23" style="color: green;"></span>
+                           
+                    </div> 
+                </div>
+                <div class="error_Box" id="8">
+                        <div class="innerNav">
+                          <span><b><i>product Id:8987y8Da</i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+
+
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                                 <span><b>Host Address:6D12.70:7</b></span>
+                                 
+                             <span id="8">Processing...</span>
+                             <span id="18"></span>
+                             <span id="19"></span>
+                             <span id="20" style="color: green;"></span>
+                           
+                    </div> 
+                </div>
+                  <div class="error_Box" id="9">
+                        <div class="innerNav">
+                          <span><b><i>product Id:4r598Da</i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                                 <span><b>Host Address:2D12.70:7</b></span>
+                             <span id="9">Processing...</span>
+                             <span id="18"></span>
+                             <span id="19"></span>
+                             <span id="20" style="color: green;"></span>
+                           
+                    </div> 
+                </div>
+                <div class="error_Box" id="10">
+                        <div class="innerNav">
+                          <span><b><i>product Id:33498Da</i></b></span>
+                        <span style="text-align: center;"><b>Address <br> 209:470:167:1ab</b></span>
+
+                                <div class="img">
+                                        <img src="https://media0.giphy.com/media/hk8ov7d7mTdLuad20E/200w.gif?cid=6c09b9526439pv3hp6ybvyfyi3d49qh9jpiu92cah4dlx33t&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="">
+                                </div>
+                            <span><b>Host Address:7712.70:7</b></span>
+                             <span id="41">Processing...</span>
+                             <span id="42"></span>
+                             <span id="43"></span>
+                             <span id="44" style="color: green;"></span>
+                           
+                    </div> 
+                </div>
+        </div>
+    <script>
+            let idNo = 10;
+            let workStatus =["IP Fetching.....","192.168.5.37","Compleated"]
+            let ipaddress =["192.168.1.34","192.168.1.35","192.168.5.37","192.168.51.4","192.168.7.74","192.168.1.36","192.168.1.4","192.168.1.54"]
+           let ststuCounter = 0;
+            setInterval(function() {
+                const element = document.getElementById(idNo);
+                element.innerHTML = workStatus[ststuCounter]
+               element.style.fontWeight = "bold";
+                ststuCounter ++;
+                if(ststuCounter >2){
+                    ststuCounter =0;
+                }
+                idNo ++;
+                if(idNo > 60){
+                    location.reload()
+                }
+                }, 5000);
+
+        console.log("halo")
+        const url = "/errors";
+        let startTime;
+        let endTime;
+        // Constants
+        const MAX_RANDOM_INDEX = 100;
+        const MIN_INTERVAL = 1000;
+        const MAX_INTERVAL = 5000;
+
+        // Utility functions
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function getRandomInterval() {
+            return getRandomInt(MIN_INTERVAL, MAX_INTERVAL);
+        }
+
+        function applyCommonStyles(element) {
+            element.style.backgroundColor = 'rgb(46, 44, 44)';
+            element.style.marginLeft = '10px';
+        }
+
+        function updateUIOnErrorClick(error) {
+            console.log(error, "error");
+            console.log('Clicked on error ID:', error._id, error.error);
+
+            // Update UI elements here
+            document.getElementById('Error').innerHTML = error.error;
+            document.getElementById('errorId').value = error._id;
+            document.getElementById('trublecode').value = error.trublecode;
+            document.getElementById('Error').style.fontSize = "30px";
+            document.getElementById('Error').style.fontStyle = "bold";
+            document.getElementById("leftBox").style.backgroundColor = "red";
+            document.getElementById('codes').style.display = "block";
+            document.getElementById("callResolveApi").style.display = 'block';
+            startTime = performance.now();
+        }
+
+        function createRandomErrorDiv(errors) {
+            const randomIndex = getRandomInt(0, MAX_RANDOM_INDEX);
+            if (randomIndex >= errors.length) {
+              
+            } else {
+                const error = errors[randomIndex];
+                 const randomNumber = getRandomInt(1, 8);
+                document.getElementById(randomNumber).innerHTML = `Error: ${error.error}`
+
+                let newDiv = document.getElementById(randomNumber);
+                newDiv.style.color="white"
+                newDiv.style.textAlign="center"
+                newDiv.style.marginTop="10px"
+                document.getElementById(randomNumber).style.backgroundColor="red"
+
+                if (error._id) {
+                   
+                    newDiv.addEventListener('click', function () {
+                        updateUIOnErrorClick(error);
+                    });
+                } else {
+                    console.error('Error object does not have an "id" property:', error);
+                }
+            }
+            applyCommonStyles(newDiv);
+        }
+
+        function createRandomErrorDivsAtIntervals(errors) {
+            setInterval(() => createRandomErrorDiv(errors), getRandomInterval());
+        }
+
+        axios.get(url)
+            .then((response) => {
+                const errors = response.data;
+                createRandomErrorDivsAtIntervals(errors);
+                console.log(errors)
+                
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+        let DinamicData = ["Processing..", "Obtainig IP.....", "Data Fetched", "192.168.2.57", "192.168.2.50", "192.168.2.59"]
+        setInterval(displayContets, 3000);
+        setInterval(displayCompleated,3000)
+
+        function displayContets() {
+            var randomIndex = getRandomInt(0, DinamicData.length)
+            document.getElementById("processing").innerHTML = DinamicData[randomIndex];
+        }
+
+            function displayCompleated(){
+                    var randomIndex = getRandomInt(0,DinamicData.length)
+                    document.getElementById("compleated").innerHTML = DinamicData[randomIndex]
+            }
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function makeAjaxCall() {
+            let errorId = document.getElementById("errorId").value;
+            let userId = document.getElementById("userId").value;
+            let code = document.getElementById('codes').value;
+            let trublecode = document.getElementById('trublecode').value;
+            endTime = performance.now();
+            let totalTime = parseInt((endTime - startTime) / 1000);
+            console.log(totalTime);
+            let data = {
+                errorId,
+                code,
+                trublecode,
+                totalTime,
+                userId
+            }
+            $.ajax({
+                url: '/ResolveError',
+                method: 'POST',
+                data, // Include the data in the request
+                dataType: 'json',
+                success: function (responseData) {
+                    // Update the HTML element with the result
+                    console.log(responseData, "response ---")
+                    let { ErrorStatus } = responseData;
+                    if (ErrorStatus == true) {
+                        
+                        console.log("error true")
+                        alert("Error successfully Solved")
+                        location.reload()
+                    } else {
+                        alert("Error Not Solved")
+                    }
+                },
+                error: function () {
+                    // Handle error cases
+                    console.log(responseData)
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            // For example, you can call it when the button is clicked
+            $('#callResolveApi').click(makeAjaxCall);
+        });
+
+
+    </script>
+
+</body>
+
+</html>

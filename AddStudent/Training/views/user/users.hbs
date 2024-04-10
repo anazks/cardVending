@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 50%;
+            height: auto;
+            margin: auto;
+            margin-top: 10px;
+            color: white;
+            border: 1px solid wheat;
+            pad: 10px   ;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    {{> usernav}}
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>email</th>
+                <th>Status</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+            {{#each staffs}}
+            <tr>
+                 <td>{{staff_name}}</td> 
+                 <td>{{email}}</td>
+                 <td>{{status}}</td>
+                 <td>{{role}}</td>  
+                 <td><a href="/changeRole/{{_id}}" class="btn btn-outline-warning">Change Role</a></td>
+            </tr>
+            {{/each}}
+        </table>
+</body>
+</html>

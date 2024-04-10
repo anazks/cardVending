@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.nav{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 10px;
+  height: 50px;
+  color: white;
+  background-color: black;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.navInner{
+  width: 30%;
+  color: white;
+  justify-content: space-around;
+}
+.Logout{
+  color: white;
+  text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <div class="nav">
+           <div style="display: flex;" class="navInner">
+                    <div>File</div>
+                    <div>Edit</div>
+                    <div>View</div>
+                    <div>Run</div>
+                    <div>Tools</div>
+                    <div>Options</div>
+                    <div>{{user.staff_name}}</div>
+                    <div><a href="/logout" class="Logout">Logout</a></div>
+                    {{#if adminOption}}
+                     <div><a href="/users" class="Logout">View Staffs</a></div>
+                     {{/if}}
+           </div>
+    </div>
+</body>
+</html>

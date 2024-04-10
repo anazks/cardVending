@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/stylesheets/view-all-forms.css" />
+
+<div class="main-container">
+  <div class="title">
+    <h1>Error Report</h1>
+    {{!-- <a href="/admin/add-new-notification" class="btn">Add New Alerts</a> --}}
+  </div>
+  <div class="sub-contents">
+    <table id="formsTable">
+      <thead>
+        <tr>
+          <th>Error Id</th>
+          <th>Time Taken(seconds)</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each errors}}
+          <tr>
+            <td>{{errorId}}</td>
+            <td>{{totalTime}}</td>
+          
+            <td><a
+                href="/admin/edit-notification/{{_id}}"
+                class="edit-btn"
+              >Edit</a>&nbsp;<a
+                href="/admin/delete-notification/{{_id}}"
+                class="delete-btn"
+                onclick="return confirm('Are you sure you want to delete this Notification?');"
+              >Delete</a></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  $( function () { $('#formsTable').DataTable(); } );
+</script>

@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/stylesheets/view-all-forms.css" />
+
+<div class="main-container">
+  <div class="title">
+    <h1>Staff List</h1>
+    <a href="/admin/add-new-staff" class="btn">Add New Staff</a>
+  </div>
+  <div class="sub-contents">
+    <table id="formsTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Position</th>
+         
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each staffList}}
+          <tr>
+            <td>{{staff_name}}</td>
+            <td>{{email}}</td>
+            <td>{{position}}</td>
+           
+            <td>{{status}}</td>
+      
+ 
+        <td><a
+                href="/admin/view-Report/{{_id}}"
+                class="edit-btn"
+              >Report</a>&nbsp;<a
+                href="/admin/delete-staff/{{_id}}"
+                class="delete-btn"
+                onclick="return confirm('Are you sure you want to remove this staff?');"
+              >Remove</a>
+            
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  $( function () { $('#formsTable').DataTable(); } );
+</script>

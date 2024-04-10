@@ -1,0 +1,89 @@
+/* Icons.css */
+:root {
+    --link-size: 64px;
+    --trans-property: all 0.3s ease;
+  }
+  
+  .social-icons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .social-icon {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: var(--link-size);
+    height: var(--link-size);
+    margin: 8px;
+    background-color: rgb(14, 14, 14);
+    border-radius: 50%;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12);
+    text-decoration: none;
+    transition: var(--trans-property);
+  }
+  
+  .icon {
+    margin: auto;
+    font-size: 24px;
+    color: #67798e;
+    z-index: 1;
+    transition: var(--trans-property);
+  }
+  
+ /* Icons.css */
+
+.tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px); /* Position the tooltip above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .social-icon:hover .tooltip {
+    opacity: 1;
+  }
+  
+  
+  .social-icon.twitter:after {
+    background-color: #1da1f2;
+  }
+  
+  .social-icon.github:after {
+    background-color: #24292e;
+  }
+  
+  .social-icon.dribbble:after {
+    background-color: #ea4c89;
+  }
+  
+  .social-icon.instagram:after {
+    background-color: #5851db;
+  }
+  
+  .social-icon.facebook:after {
+    background-color: #1769ff;
+  }
+  
+  .social-icon:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.16);
+    color: white;
+  }
+  
+  .social-icon:hover .icon {
+    color: #fff;
+  }
+  
+  .social-icon:hover:after {
+    transform: translate(0) scale(1.2);
+  }
+  

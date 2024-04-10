@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <link rel="stylesheet" href="/stylesheets/add-new-questionpaper.css" />
+<div class="question-content">
+  <div class="title">
+    <h1>Add Error </h1>
+  </div>
+  <div class="form-container">
+    <form
+      action="/admin/addError"
+      method="post"
+    >
+      <div class="input-group">
+        <label for="department">Error</label>
+              <input type="text" name="error" placeholder="Error code">
+        {{!-- <select name="department" id="department" required>
+          <option value="" selected disabled hidden>SELECT ONE</option>
+          <option value="General">General F.I.R</option>
+          <option value="Zero">Zero F.I.R</option>
+          <option value="Cross">Cross F.I.R:</option>
+          <option value="Multiple">Multiple F.I.R</option>
+        </select> --}}
+      </div>
+      <div class="input-group">
+        <label for="subject">Trubble shoot code</label>
+              <input type="text" placeholder="Truble shoot code" name="trublecode">
+      </div>
+       {{!-- <div class="input-group">
+        <label for="subject">Assign Cause To</label>
+
+        <select    name="subject" id="staffSelection" onchange="checkStatus()" required>
+            {{#each officers}}
+                  <option value="{{staff_name}}" id="department">{{staff_name}}</option>
+            {{/each}}
+        </select> 
+      </div> --}}
+        {{!-- <label for="">Current Cause Status <span id="status" style="color: red;"></span> </label> --}}
+
+
+      <div class="input-group">
+        <label for="subject">Description</label>
+              <input type="text" placeholder="Description" name="Description">
+      </div>
+      {{!-- <div class="input-group">
+        <label for="year_month">Year and Month</label>
+        <input type="month" name="year_month" id="year_month" required />
+      </div>
+      <div class="input-group">
+        <label for="qPaper">Document</label>
+        <input type="file" accept=".pdf" name="qustionP" id="qPaper" required />
+      </div> --}}
+      <div class="btn-group">
+        <input type="submit" class="btn-submit" value="Submit" />
+        <input type="reset" class="btn-reset" value="Reset" />
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  function checkStatus(){
+      console.log("changed")
+      var selectedStaff = document.getElementById("staffSelection").value;
+      console.log(selectedStaff)
+      fetch('/admin/checkStaffStatus',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ selectedStaff: selectedStaff }),
+      })
+      .then(response =>response.json())
+      .then(data =>{
+        console.log(data)
+        document.getElementById("status").innerHTML = data
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+  }
+</script>
+</body>
+</html>

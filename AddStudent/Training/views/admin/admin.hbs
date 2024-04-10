@@ -1,0 +1,34 @@
+<div class="staff-details">
+  <div class="title">
+    <h2>Staffs</h2>
+    <a href="/admin/allow-all" class="btn">Allow All</a>
+  </div>
+  <table>
+    <tr>
+      <th>username</th>
+      <th>emailId</th>
+      {{!-- <th>password</th> --}}
+      <th>status</th>
+      <th>action</th>
+      <th>action
+        <th>Role</th>
+      </th>
+      <th>option</th>
+
+    </tr>
+    {{#each staffList}}
+      <tr>
+        <td>{{staff_name}}</td>
+        <td>{{email}}</td>
+        {{!-- <td>{{password}} </td> --}}
+        <td>{{status}}</td>
+        <td><a href="/admin/logout/{{_id}}" class="btn btn-danger">Logout</a></td>
+        <td><a href="/admin/allow/{{_id}}" class="btn btn-success">allow</a></td>
+        <td>{{role}}</td>
+        <td><a href="/admin/makeAdmin/{{_id}}" class="btn btn-outline-warning">Change Role</a></td>
+      </tr>
+    {{/each}}
+  </table>
+</div>
+
+</div>
